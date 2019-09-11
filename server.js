@@ -1,7 +1,6 @@
 var express = require("express");
 require('dotenv').config()
-var gulp        = require('gulp');
-var browserSync = require('browser-sync').create();
+
 
 var app = express();
 
@@ -14,13 +13,7 @@ app.use(express.static("public"))
 require("./routes/htmlRoutes")(app);
 //have to make a post request to my database and then a reponse back 
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        }
-    });
-});
+
 
 
 
