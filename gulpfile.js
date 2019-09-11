@@ -12,6 +12,10 @@ const plumber = require("gulp-plumber");
 const rename = require("gulp-rename");
 const sass = require("gulp-sass");
 const uglify = require("gulp-uglify");
+var gls = require('gulp-live-server');
+
+
+
 
 // Load package.json for banner
 const pkg = require('./package.json');
@@ -35,6 +39,12 @@ function browserSync(done) {
   });
   done();
 }
+
+//testing//
+gulp.task('default', [ 'build','watch','connect'], function() {
+  var server = gls.new('./server.js');
+  return server.start();
+});
 
 // BrowserSync reload
 function browserSyncReload(done) {
